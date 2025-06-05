@@ -1,15 +1,11 @@
-# fine_tune_model.py
-
 import pandas as pd
-from sentence_transformers import SentenceTransformer, InputExample, losses
 from sklearn.preprocessing import MinMaxScaler
+from sentence_transformers import SentenceTransformer, InputExample, losses
 from torch.utils.data import DataLoader
 
-# Read CSV with proper encoding and convert relevance to float
-df = pd.read_csv('Book2.csv', encoding='latin1')
+df = pd.read_csv('csv/small/train.csv')
 df['relevance'] = pd.to_numeric(df['relevance'])
 
-# Scale the relevance scores
 scaler = MinMaxScaler()
 df['normalized_relevance'] = scaler.fit_transform(df[['relevance']].values)
 
