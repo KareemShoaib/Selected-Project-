@@ -4,41 +4,39 @@ tags:
 - sentence-similarity
 - feature-extraction
 - generated_from_trainer
-- dataset_size:59253
+- dataset_size:47402
 - loss:CosineSimilarityLoss
 base_model: sentence-transformers/all-MiniLM-L6-v2
 widget:
-- source_sentence: lincoln weld machin brand_lincoln
+- source_sentence: 18x 14gabl vent brand_18
   sentences:
-  - lincoln electr bulldog 5500arc stick welder brand_lincoln
-  - winchest 100000 btu 80multi-posit ga furnac brand_winchest
-  - alexandria mould 34 in. x 3in. x 3in. prime mdf rosett corner block mould brand_alexandria
-- source_sentence: circular allen wrench brand_circular
+  - hampton bay diner 2light brush nickel fluoresc flush mount -discontinu brand_hampton
+  - cellwood 14in. x 14in. white squar gabl vent brand_cellwood color_whit
+  - everbilt 14x 34 in. zinc-plat steel pan-head phillip sheet metal screw 8pack brand_everbilt
+- source_sentence: swag light kit brand_swag
   sentences:
-  - huski sae long-arm hex key set 13piec brand_huski
-  - south shore furnitur fiesta 23.5in. w microwav kitchen cart with storag on wheel
-    in pure black brand_south color_black
-  - american standard princeton recess 5ft. left drain bathtub in white brand_american
-    color_whit
-- source_sentence: acclaim brand_acclaim
+  - westinghous 18ft. brush nickel swag light kit brand_westinghous
+  - salsburi industri 3500seri aluminum recessed-mount privat vertic mailbox with
+    7door brand_salsburi
+  - complet toilet repair kit brand_complet
+- source_sentence: new electr water heater brand_new
   sentences:
-  - dewalt 18volt xrp ni-cad cordless reciproc saw kit brand_dewalt
-  - 3m bondo 8sq. ft. fiberglass mat brand_3m
-  - acclaim light kero collect wall-mount 1light outdoor matt black light fixtur brand_acclaim
+  - rheem perform 50gal. tall 6year 45004500watt element electr water heater brand_rheem
+  - sea gull light classico 1light polish brass outdoor hang pendant fixtur brand_sea
+  - black decker linefind orbit jigsaw with smartselect technolog brand_black+deck
     color_black
-- source_sentence: mold trim 808501 brand_mold
+- source_sentence: eler outlet plate brand_eler
   sentences:
-  - wyndham collect avara 72in. vaniti in espresso with doubl basin stone vaniti top
-    in white medicin cabinet brand_wyndham color_whit
-  - ornament mould 18251 2in. x 214 in. x 96in. white hardwood emboss ivi bead trim
-    chair rail mould brand_ornament color_whit
-  - simpli home urban loft 24in. vaniti in espresso brown with quartz marbl vaniti
-    top in white under-mount oval sink brand_simpli color_brown color_whit
-- source_sentence: clothespin brand_clothespin
+  - gree high effici 24000 btu 2ton ductless duct free mini split air condition with
+    invert heat remot 208230v brand_gre
+  - hampton bay step 1duplex outlet plate - age bronz brand_hampton
+  - singer confid sew machin brand_sing
+- source_sentence: kohler highlin touch biscuit brand_kohl
   sentences:
-  - filament design celesti 3light chrome track light kit with direct head brand_fila
-  - westinghous turbo swirl 30in. brush aluminum ceil fan brand_westinghous
-  - honey-can-do tradit wood clothespin 96pack brand_honey-can-do
+  - lexan thermoclear 48in. x 96in. x 58 in. bronz multiwal polycarbon sheet brand_lexan
+  - vento clover 54in. chrome indoor ceil fan with 3transluc yellow blade brand_vento
+    color_yellow
+  - kohler highlin comfort height elong toilet bowl in biscuit brand_kohl
 pipeline_tag: sentence-similarity
 library_name: sentence-transformers
 metrics:
@@ -55,10 +53,10 @@ model-index:
       type: val
     metrics:
     - type: pearson_cosine
-      value: 0.5327373057140631
+      value: 0.5271053959513253
       name: Pearson Cosine
     - type: spearman_cosine
-      value: 0.5306209932063065
+      value: 0.5196782645468574
       name: Spearman Cosine
 ---
 
@@ -112,9 +110,9 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("sentence_transformers_model_id")
 # Run inference
 sentences = [
-    'clothespin brand_clothespin',
-    'honey-can-do tradit wood clothespin 96pack brand_honey-can-do',
-    'westinghous turbo swirl 30in. brush aluminum ceil fan brand_westinghous',
+    'kohler highlin touch biscuit brand_kohl',
+    'kohler highlin comfort height elong toilet bowl in biscuit brand_kohl',
+    'vento clover 54in. chrome indoor ceil fan with 3transluc yellow blade brand_vento color_yellow',
 ]
 embeddings = model.encode(sentences)
 print(embeddings.shape)
@@ -161,8 +159,8 @@ You can finetune this model on your own dataset.
 
 | Metric              | Value      |
 |:--------------------|:-----------|
-| pearson_cosine      | 0.5327     |
-| **spearman_cosine** | **0.5306** |
+| pearson_cosine      | 0.5271     |
+| **spearman_cosine** | **0.5197** |
 
 <!--
 ## Bias, Risks and Limitations
@@ -182,19 +180,19 @@ You can finetune this model on your own dataset.
 
 #### Unnamed Dataset
 
-* Size: 59,253 training samples
+* Size: 47,402 training samples
 * Columns: <code>sentence_0</code>, <code>sentence_1</code>, and <code>label</code>
 * Approximate statistics based on the first 1000 samples:
   |         | sentence_0                                                                        | sentence_1                                                                        | label                                                          |
   |:--------|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:---------------------------------------------------------------|
   | type    | string                                                                            | string                                                                            | float                                                          |
-  | details | <ul><li>min: 6 tokens</li><li>mean: 10.58 tokens</li><li>max: 31 tokens</li></ul> | <ul><li>min: 7 tokens</li><li>mean: 25.23 tokens</li><li>max: 50 tokens</li></ul> | <ul><li>min: 0.0</li><li>mean: 0.69</li><li>max: 1.0</li></ul> |
+  | details | <ul><li>min: 6 tokens</li><li>mean: 10.46 tokens</li><li>max: 27 tokens</li></ul> | <ul><li>min: 8 tokens</li><li>mean: 24.74 tokens</li><li>max: 51 tokens</li></ul> | <ul><li>min: 0.0</li><li>mean: 0.69</li><li>max: 1.0</li></ul> |
 * Samples:
-  | sentence_0                                                 | sentence_1                                                                                                                           | label                            |
-  |:-----------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|
-  | <code>interior door 82inch in length brand_interior</code> | <code>jeld-wen smooth 4panel prime mold interior door slab brand_jeld-wen</code>                                                     | <code>0.665</code>               |
-  | <code>cub cadet mower tire brand_cub</code>                | <code>cub cadet xt1enduro seri lt 50in. 24hp v-twin kohler hydrostat ga front-engin ride mower-california compliant brand_cub</code> | <code>0.33499999999999996</code> |
-  | <code>granit sealer brand_granit</code>                    | <code>granit gold 24oz. countertop liquid polish brand_granit color_gold</code>                                                      | <code>0.665</code>               |
+  | sentence_0                                  | sentence_1                                                                                            | label                            |
+  |:--------------------------------------------|:------------------------------------------------------------------------------------------------------|:---------------------------------|
+  | <code>concret step cap brand_concret</code> | <code>paveston rockwal 3.4in. x 9in. pecan retain concret garden wall block cap brand_paveston</code> | <code>0.665</code>               |
+  | <code>hillman group brand_th</code>         | <code>hillman group 14 in. x 212 in. toggl strap with screw 6pack brand_th</code>                     | <code>0.835</code>               |
+  | <code>ryobi trimmer brand_ryobi</code>      | <code>ryobi replac trimmer cordless spool cap brand_ryobi</code>                                      | <code>0.33499999999999996</code> |
 * Loss: [<code>CosineSimilarityLoss</code>](https://sbert.net/docs/package_reference/sentence_transformer/losses.html#cosinesimilarityloss) with these parameters:
   ```json
   {
@@ -330,115 +328,93 @@ You can finetune this model on your own dataset.
 </details>
 
 ### Training Logs
-<details><summary>Click to expand</summary>
+| Epoch  | Step | Training Loss | val_spearman_cosine |
+|:------:|:----:|:-------------:|:-------------------:|
+| 0.0337 | 100  | -             | 0.3862              |
+| 0.0675 | 200  | -             | 0.4180              |
+| 0.1012 | 300  | -             | 0.4276              |
+| 0.1350 | 400  | -             | 0.4387              |
+| 0.1687 | 500  | 0.0637        | 0.4289              |
+| 0.2025 | 600  | -             | 0.4501              |
+| 0.2362 | 700  | -             | 0.4569              |
+| 0.2700 | 800  | -             | 0.4521              |
+| 0.3037 | 900  | -             | 0.4574              |
+| 0.3375 | 1000 | 0.0576        | 0.4525              |
+| 0.3712 | 1100 | -             | 0.4576              |
+| 0.4050 | 1200 | -             | 0.4651              |
+| 0.4387 | 1300 | -             | 0.4623              |
+| 0.4725 | 1400 | -             | 0.4693              |
+| 0.5062 | 1500 | 0.0563        | 0.4611              |
+| 0.5400 | 1600 | -             | 0.4732              |
+| 0.5737 | 1700 | -             | 0.4712              |
+| 0.6075 | 1800 | -             | 0.4797              |
+| 0.6412 | 1900 | -             | 0.4809              |
+| 0.6750 | 2000 | 0.0567        | 0.4758              |
+| 0.7087 | 2100 | -             | 0.4715              |
+| 0.7425 | 2200 | -             | 0.4913              |
+| 0.7762 | 2300 | -             | 0.4857              |
+| 0.8100 | 2400 | -             | 0.4824              |
+| 0.8437 | 2500 | 0.0547        | 0.4935              |
+| 0.8775 | 2600 | -             | 0.4881              |
+| 0.9112 | 2700 | -             | 0.4955              |
+| 0.9450 | 2800 | -             | 0.4929              |
+| 0.9787 | 2900 | -             | 0.4925              |
+| 1.0    | 2963 | -             | 0.4910              |
+| 1.0125 | 3000 | 0.0546        | 0.4894              |
+| 1.0462 | 3100 | -             | 0.5002              |
+| 1.0800 | 3200 | -             | 0.4953              |
+| 1.1137 | 3300 | -             | 0.4923              |
+| 1.1475 | 3400 | -             | 0.4976              |
+| 1.1812 | 3500 | 0.0489        | 0.4919              |
+| 1.2150 | 3600 | -             | 0.5038              |
+| 1.2487 | 3700 | -             | 0.4983              |
+| 1.2825 | 3800 | -             | 0.4970              |
+| 1.3162 | 3900 | -             | 0.5071              |
+| 1.3500 | 4000 | 0.0497        | 0.5062              |
+| 1.3837 | 4100 | -             | 0.5073              |
+| 1.4175 | 4200 | -             | 0.5071              |
+| 1.4512 | 4300 | -             | 0.5069              |
+| 1.4850 | 4400 | -             | 0.4994              |
+| 1.5187 | 4500 | 0.0512        | 0.4999              |
+| 1.5525 | 4600 | -             | 0.5065              |
+| 1.5862 | 4700 | -             | 0.5089              |
+| 1.6200 | 4800 | -             | 0.5121              |
+| 1.6537 | 4900 | -             | 0.5103              |
+| 1.6875 | 5000 | 0.0497        | 0.5079              |
+| 1.7212 | 5100 | -             | 0.5072              |
+| 1.7550 | 5200 | -             | 0.5093              |
+| 1.7887 | 5300 | -             | 0.5106              |
+| 1.8225 | 5400 | -             | 0.5100              |
+| 1.8562 | 5500 | 0.0496        | 0.5126              |
+| 1.8900 | 5600 | -             | 0.5038              |
+| 1.9237 | 5700 | -             | 0.5103              |
+| 1.9575 | 5800 | -             | 0.5128              |
+| 1.9912 | 5900 | -             | 0.5083              |
+| 2.0    | 5926 | -             | 0.5094              |
+| 2.0250 | 6000 | 0.0495        | 0.5127              |
+| 2.0587 | 6100 | -             | 0.5163              |
+| 2.0925 | 6200 | -             | 0.5130              |
+| 2.1262 | 6300 | -             | 0.5133              |
+| 2.1600 | 6400 | -             | 0.5143              |
+| 2.1937 | 6500 | 0.0456        | 0.5128              |
+| 2.2275 | 6600 | -             | 0.5162              |
+| 2.2612 | 6700 | -             | 0.5134              |
+| 2.2950 | 6800 | -             | 0.5179              |
+| 2.3287 | 6900 | -             | 0.5181              |
+| 2.3625 | 7000 | 0.0471        | 0.5108              |
+| 2.3962 | 7100 | -             | 0.5167              |
+| 2.4300 | 7200 | -             | 0.5165              |
+| 2.4637 | 7300 | -             | 0.5149              |
+| 2.4975 | 7400 | -             | 0.5184              |
+| 2.5312 | 7500 | 0.0465        | 0.5184              |
+| 2.5650 | 7600 | -             | 0.5189              |
+| 2.5987 | 7700 | -             | 0.5162              |
+| 2.6325 | 7800 | -             | 0.5180              |
+| 2.6662 | 7900 | -             | 0.5164              |
+| 2.7000 | 8000 | 0.0456        | 0.5181              |
+| 2.7337 | 8100 | -             | 0.5184              |
+| 2.7675 | 8200 | -             | 0.5197              |
 
-| Epoch  | Step  | Training Loss | val_spearman_cosine |
-|:------:|:-----:|:-------------:|:-------------------:|
-| 0.0270 | 100   | -             | 0.3712              |
-| 0.0540 | 200   | -             | 0.4146              |
-| 0.0810 | 300   | -             | 0.4259              |
-| 0.1080 | 400   | -             | 0.4335              |
-| 0.1350 | 500   | 0.0624        | 0.4449              |
-| 0.1620 | 600   | -             | 0.4453              |
-| 0.1890 | 700   | -             | 0.4513              |
-| 0.2160 | 800   | -             | 0.4515              |
-| 0.2430 | 900   | -             | 0.4561              |
-| 0.2700 | 1000  | 0.0583        | 0.4544              |
-| 0.2970 | 1100  | -             | 0.4529              |
-| 0.3240 | 1200  | -             | 0.4719              |
-| 0.3510 | 1300  | -             | 0.4759              |
-| 0.3780 | 1400  | -             | 0.4788              |
-| 0.4050 | 1500  | 0.0569        | 0.4737              |
-| 0.4320 | 1600  | -             | 0.4697              |
-| 0.4590 | 1700  | -             | 0.4724              |
-| 0.4860 | 1800  | -             | 0.4835              |
-| 0.5130 | 1900  | -             | 0.4763              |
-| 0.5400 | 2000  | 0.0566        | 0.4801              |
-| 0.5670 | 2100  | -             | 0.4826              |
-| 0.5940 | 2200  | -             | 0.4849              |
-| 0.6210 | 2300  | -             | 0.4882              |
-| 0.6479 | 2400  | -             | 0.4837              |
-| 0.6749 | 2500  | 0.0552        | 0.4904              |
-| 0.7019 | 2600  | -             | 0.4968              |
-| 0.7289 | 2700  | -             | 0.4928              |
-| 0.7559 | 2800  | -             | 0.4931              |
-| 0.7829 | 2900  | -             | 0.4951              |
-| 0.8099 | 3000  | 0.0546        | 0.4984              |
-| 0.8369 | 3100  | -             | 0.4996              |
-| 0.8639 | 3200  | -             | 0.4999              |
-| 0.8909 | 3300  | -             | 0.4949              |
-| 0.9179 | 3400  | -             | 0.5037              |
-| 0.9449 | 3500  | 0.0549        | 0.4966              |
-| 0.9719 | 3600  | -             | 0.5039              |
-| 0.9989 | 3700  | -             | 0.5022              |
-| 1.0    | 3704  | -             | 0.5015              |
-| 1.0259 | 3800  | -             | 0.4968              |
-| 1.0529 | 3900  | -             | 0.5022              |
-| 1.0799 | 4000  | 0.0512        | 0.5092              |
-| 1.1069 | 4100  | -             | 0.5062              |
-| 1.1339 | 4200  | -             | 0.5042              |
-| 1.1609 | 4300  | -             | 0.5038              |
-| 1.1879 | 4400  | -             | 0.5032              |
-| 1.2149 | 4500  | 0.0497        | 0.5103              |
-| 1.2419 | 4600  | -             | 0.5114              |
-| 1.2689 | 4700  | -             | 0.5105              |
-| 1.2959 | 4800  | -             | 0.5090              |
-| 1.3229 | 4900  | -             | 0.5123              |
-| 1.3499 | 5000  | 0.0501        | 0.5093              |
-| 1.3769 | 5100  | -             | 0.5143              |
-| 1.4039 | 5200  | -             | 0.5143              |
-| 1.4309 | 5300  | -             | 0.5120              |
-| 1.4579 | 5400  | -             | 0.5115              |
-| 1.4849 | 5500  | 0.0501        | 0.5123              |
-| 1.5119 | 5600  | -             | 0.5098              |
-| 1.5389 | 5700  | -             | 0.5165              |
-| 1.5659 | 5800  | -             | 0.5169              |
-| 1.5929 | 5900  | -             | 0.5154              |
-| 1.6199 | 6000  | 0.0497        | 0.5185              |
-| 1.6469 | 6100  | -             | 0.5240              |
-| 1.6739 | 6200  | -             | 0.5223              |
-| 1.7009 | 6300  | -             | 0.5225              |
-| 1.7279 | 6400  | -             | 0.5216              |
-| 1.7549 | 6500  | 0.0493        | 0.5241              |
-| 1.7819 | 6600  | -             | 0.5216              |
-| 1.8089 | 6700  | -             | 0.5213              |
-| 1.8359 | 6800  | -             | 0.5179              |
-| 1.8629 | 6900  | -             | 0.5250              |
-| 1.8898 | 7000  | 0.0487        | 0.5261              |
-| 1.9168 | 7100  | -             | 0.5229              |
-| 1.9438 | 7200  | -             | 0.5209              |
-| 1.9708 | 7300  | -             | 0.5217              |
-| 1.9978 | 7400  | -             | 0.5269              |
-| 2.0    | 7408  | -             | 0.5275              |
-| 2.0248 | 7500  | 0.0479        | 0.5271              |
-| 2.0518 | 7600  | -             | 0.5255              |
-| 2.0788 | 7700  | -             | 0.5189              |
-| 2.1058 | 7800  | -             | 0.5241              |
-| 2.1328 | 7900  | -             | 0.5262              |
-| 2.1598 | 8000  | 0.0459        | 0.5280              |
-| 2.1868 | 8100  | -             | 0.5281              |
-| 2.2138 | 8200  | -             | 0.5245              |
-| 2.2408 | 8300  | -             | 0.5262              |
-| 2.2678 | 8400  | -             | 0.5258              |
-| 2.2948 | 8500  | 0.0457        | 0.5247              |
-| 2.3218 | 8600  | -             | 0.5284              |
-| 2.3488 | 8700  | -             | 0.5258              |
-| 2.3758 | 8800  | -             | 0.5294              |
-| 2.4028 | 8900  | -             | 0.5251              |
-| 2.4298 | 9000  | 0.0444        | 0.5262              |
-| 2.4568 | 9100  | -             | 0.5286              |
-| 2.4838 | 9200  | -             | 0.5283              |
-| 2.5108 | 9300  | -             | 0.5272              |
-| 2.5378 | 9400  | -             | 0.5284              |
-| 2.5648 | 9500  | 0.0455        | 0.5290              |
-| 2.5918 | 9600  | -             | 0.5290              |
-| 2.6188 | 9700  | -             | 0.5284              |
-| 2.6458 | 9800  | -             | 0.5299              |
-| 2.6728 | 9900  | -             | 0.5300              |
-| 2.6998 | 10000 | 0.0446        | 0.5305              |
-| 2.7268 | 10100 | -             | 0.5306              |
-
-</details>
 
 ### Framework Versions
 - Python: 3.11.13
